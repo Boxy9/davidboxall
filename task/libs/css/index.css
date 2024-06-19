@@ -1,0 +1,19 @@
+body header,
+#results0,
+#results1,
+#results2,
+#results3 {
+    text-align: center;
+}
+
+#geoTable {
+    text-align: left;
+    margin: auto;
+}
+
+#results0,
+#results1,
+#results2,
+#results3 {
+    color: blue;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GeoNames API</title>
+    <link rel="stylesheet" href="libs/css/index.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <h1>GeoNames Examples</h1>
+        <p>The GeoNames geographical database covers all countries and contains over <br>eleven million placenames that
+            are available for download free of charge.</p>
+    </header>
+
+    <main>
+        <table id="geoTable">
+            <tr>
+                <th scope="col">
+                    <h3>API Name</h3>
+                </th>
+                <th scope="col">
+                    <h3>API Description</h3>
+                </th>
+            </tr>
+            <tr>
+                <th scope="row">findNearbyPlaceName</th>
+                <td id="pop">Find nearby populated place using latitude and longitude<br>
+                    <label>Latitude:
+                        <input id="selLat" type="text" required />
+                    </label>
+                    <label>Longitude:
+                        <input id="selLng" type="text" required />
+                    </label><br>
+                </td>
+                <td><button id="subBtnPop">Submit</button></td>
+            </tr>
+            <tr>
+                <th scope="row">gtopo30</th>
+                <td id="GTOPO30">gtopo30 is a global digital elevation model (DEM) with a horizontal<br>grid spacing of
+                    30 arc
+                    seconds (approximately 1 kilometer). GTOPO30 was derived from several<br>raster and vector sources
+                    of topographic information. Documentation : USGS Gtopo30 latitude and longitude<br>
+                    <label>Latitude:
+                        <input id="selLat1" type="text" required />
+                    </label>
+                    <label>Longitude:
+                        <input id="selLng1" type="text" required />
+                    </label><br>
+                </td>
+                <td><button id="subBtnEle">Submit</button></td>
+            </tr>
+            <tr>
+                <th scope="row">Address Geocoding</th>
+                <td id="address">Returns the latitude and longitude for a given address (may not work for all countries
+                    ! )<br>
+                    <label>Street:
+                        <input id="selStreet" type="text" required />
+                    </label>
+                    <label>City/Town:
+                        <input id="selCity" type="text" required />
+                    </label>
+                    <label>Country:
+                        <select id="selCountry" type="text" required>
+                            
+                        </select>
+                    </label><br>
+                </td>
+                <td><button id="subBtnAdd">Submit</button></td>
+            </tr>
+            <tr>
+                <td id="results0" scope="row" colspan="3"></td>
+            </tr>
+            <tr>
+                <td id="results1" scope="row" colspan="3"></td>
+            </tr>
+            <tr>
+                <td id="results2" scope="row" colspan="3"></td>
+            </tr>
+            <tr>
+                <td id="results3" scope="row" colspan="3"></td>
+            </tr>
+        </table>
+
+
+    </main>
+
+    <Footer>&copy; David Boxall</Footer>
+
+    <script type="text/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="libs/js/script.js"></script>
+
+</body>
+
+</html>
