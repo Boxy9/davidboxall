@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>GeoNames API</title>
+    <link rel="icon" type="image/png" href="libs/img/gru.png">
     <link rel="stylesheet" href="libs/css/index.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
@@ -64,11 +65,14 @@
                     </label>
                     <label>Country:
                         <select id="selCountry" type="text" required>
-                            
+                            <option>Please pick a counrty</option>
                         </select>
                     </label><br>
                 </td>
                 <td><button id="subBtnAdd">Submit</button></td>
+            </tr>
+            <tr>
+                <th id="results" scope="col" colspan="3"><p><strong>Results</strong></p></th>
             </tr>
             <tr>
                 <td id="results0" scope="row" colspan="3"></td>

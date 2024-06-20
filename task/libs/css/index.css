@@ -1,4 +1,5 @@
 body header,
+#results,
 #results0,
 #results1,
 #results2,
@@ -9,6 +10,11 @@ body header,
 #geoTable {
     text-align: left;
     margin: auto;
+}
+#results {
+    padding-top: 20px;
+    color: rgb(47, 109, 255);
+    text-decoration: underline;
 }
 
 #results0,

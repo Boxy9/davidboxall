@@ -8,7 +8,7 @@ $executionStartTime = microtime(true);
 
 header('Content-Type: application/json; charset=UTF-8');
 
-$url = 'http://api.geonames.org/gtopo30JSON?formatted=true&lat=' . $_REQUEST['lat'] . '&lng=' . $_REQUEST['lng'] . '&username=davidboxall&style=full';
+$url = 'http://api.geonames.org/gtopo30JSON?formatted=true&lat=' . $_POST['lat'] . '&lng=' . $_POST['lng'] . '&username=davidboxall&style=full';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

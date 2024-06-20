@@ -155,9 +155,16 @@ $('#subBtnPop').click(function () {
 
             if (result.status.name == "ok") {
                 if (Object.keys(result['data']).length > 0) {
-                    $('#results0').html('Town/City - ' + result['data'][0]['asciiName']);
-                    $('#results1').html('Time Zone - ' + result['data'][0]['timezone']['timeZoneId'] + ' (GMT ' + result['data'][0]['timezone']['gmtOffset'] + ')');
-                    $('#results2').html('Country - ' + result['data'][0]['countryName']);
+                    var gmtOffset = parseInt(result['data'][0]['timezone']['gmtOffset']);
+                    var gmtOffsetTxt = " ";
+                    if (gmtOffset >= 0) {
+                        gmtOffsetTxt = "+" + gmtOffset.toString();
+                    } else {
+                        gmtOffsetTxt = gmtOffset.toString();
+                    }
+                    $('#results0').html('Town/City : ' + result['data'][0]['asciiName']);
+                    $('#results1').html('Time Zone : ' + result['data'][0]['timezone']['timeZoneId'] + ' (GMT ' + gmtOffsetTxt + ')');
+                    $('#results2').html('Country : ' + result['data'][0]['countryName']);
                     $('#results3').html(' ');
                 } else {
                     $('#results0').html('Sorry no details have been found !');
@@ -191,7 +198,7 @@ $('#subBtnEle').click(function () {
 
             if (result.status.name == "ok") {
                 if (Object.keys(result['data']).length > 0) {
-                    $('#results0').html('Elevation - ' + result['data']['gtopo30'] + 'm');
+                    $('#results0').html('Elevation : ' + result['data']['gtopo30'] + 'm');
                     $('#results1').html(' ');
                     $('#results2').html(' ');
                     $('#results3').html(' ');
@@ -228,8 +235,8 @@ $('#subBtnAdd').click(function () {
 
             if (result.status.name == "ok") {
                 if (Object.keys(result['data']).length > 0) {
-                    $('#results0').html('Latitude - ' + result['data']['lat']);
-                    $('#results1').html('Longitude - ' + result['data']['lng']);
+                    $('#results0').html('Latitude : ' + result['data']['lat']);
+                    $('#results1').html('Longitude : ' + result['data']['lng']);
                     $('#results2').html(' ');
                     $('#results3').html(' ');
                 } else {
