@@ -154,7 +154,7 @@ $('#subBtnPop').click(function () {
             console.log(JSON.stringify(result))
 
             if (result.status.name == "ok") {
-                if (Object.keys(result['data']).length > 0) {
+                if (result['data'] !== null && Object.keys(result['data']).length > 0) {
                     var gmtOffset = parseInt(result['data'][0]['timezone']['gmtOffset']);
                     var gmtOffsetTxt = " ";
                     if (gmtOffset >= 0) {
@@ -197,7 +197,7 @@ $('#subBtnEle').click(function () {
             console.log(JSON.stringify(result))
 
             if (result.status.name == "ok") {
-                if (Object.keys(result['data']).length > 0) {
+                if (result['data'] !== null && Object.keys(result['data']).length > 0) {
                     $('#results0').html('Elevation : ' + result['data']['gtopo30'] + 'm');
                     $('#results1').html(' ');
                     $('#results2').html(' ');
@@ -234,7 +234,7 @@ $('#subBtnAdd').click(function () {
             console.log(JSON.stringify(result))
 
             if (result.status.name == "ok") {
-                if (Object.keys(result['data']).length > 0) {
+                if (result['data'] !== null && Object.keys(result['data']).length > 0) {
                     $('#results0').html('Latitude : ' + result['data']['lat']);
                     $('#results1').html('Longitude : ' + result['data']['lng']);
                     $('#results2').html(' ');
