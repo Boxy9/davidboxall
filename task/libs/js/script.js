@@ -143,7 +143,7 @@ $('#subBtnPop').click(function () {
 
     $.ajax({
         url: "libs/php/pop.php",
-        type: 'POST',
+        type: 'GET',
         dataType: 'json',
         data: {
             lat: $('#selLat').val(),
@@ -164,8 +164,8 @@ $('#subBtnPop').click(function () {
                     }
                     $('#results0').html('Town/City : ' + result['data'][0]['asciiName']);
                     $('#results1').html('Time Zone : ' + result['data'][0]['timezone']['timeZoneId'] + ' (GMT ' + gmtOffsetTxt + ')');
-                    $('#results2').html('Country : ' + result['data'][0]['countryName']);
-                    $('#results3').html(' ');
+                    $('#results2').html('County : ' + result['data'][0]['adminName2']);
+                    $('#results3').html('Country : ' + result['data'][0]['countryName']);
                 } else {
                     $('#results0').html('Sorry no details have been found !');
                     $('#results1').html(' ');
@@ -186,7 +186,7 @@ $('#subBtnEle').click(function () {
 
     $.ajax({
         url: "libs/php/GTOPO30.php",
-        type: 'POST',
+        type: 'GET',
         dataType: 'json',
         data: {
             lat: $('#selLat1').val(),
@@ -222,7 +222,7 @@ $('#subBtnAdd').click(function () {
 
     $.ajax({
         url: "libs/php/address.php",
-        type: 'POST',
+        type: 'GET',
         dataType: 'json',
         data: {
             street: $('#selStreet').val(),

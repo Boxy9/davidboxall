@@ -6,9 +6,9 @@ ini_set('error_reporting', E_ALL & ~E_WARNING & ~E_NOTICE);
 
 $executionStartTime = microtime(true);
 
-header('Content-Type: application/json; charset=UTF-8');
+header('Content-Type: text/json; charset=UTF-8');
 
-$url = 'http://api.geonames.org/findNearbyPlaceNameJSON?formatted=true&lat=' . $_POST['lat'] . '&lng=' . $_POST['lng'] . '&username=davidboxall&style=full';
+$url = 'http://api.geonames.org/findNearbyPlaceNameJSON?formatted=true&lat=' . $_GET['lat'] . '&lng=' . $_GET['lng'] . '&username=davidboxall&style=full';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
