@@ -8,7 +8,7 @@ $executionStartTime = microtime(true);
 
 header('Content-Type: application/json; charset=UTF-8');
 
-$url = 'http://api.geonames.org/geoCodeAddressJSON?q=' . $_GET['street'] . '+6+' . $_GET['city']  . '&country=' . $_GET['countryCode'] . '&username=davidboxall';
+$url = 'http://api.geonames.org/geoCodeAddressJSON?formatted=true&q=' . $_GET['street'] . '+6+' . $_GET['city']  . '&country=' . $_GET['countryCode'] . '&username=davidboxall&style=full';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
