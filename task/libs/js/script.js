@@ -155,7 +155,7 @@ $('#subBtnPop').click(function () {
 
             if (result.status.name == "ok") {
                 if (result['data'] !== null && Object.keys(result['data']).length > 0) {
-                    var gmtOffset = parseFloat(result['data'][0]['timezone']['gmtOffset']);
+                    var gmtOffset = parseInt(result['data'][0]['timezone']['gmtOffset']);
                     var gmtOffsetTxt = " ";
                     if (gmtOffset >= 0) {
                         gmtOffsetTxt = "+" + gmtOffset.toString();
