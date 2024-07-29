@@ -1,49 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="libs/css/style.css" type="text/css" />
-  <title>Gazetta</title>
+  <meta http-equiv='X-UA-Compatible' content='IE=Edge' />
+  <meta charset='UTF-8'>
+  <title>Gazetteer</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.1/maps/maps.css'>
+  <link rel='stylesheet' type='text/css' href='libs/css/index.css' />
+  <link rel='stylesheet' type='text/css' href='libs/css/info-hint.css' />
+  <link rel='stylesheet' type='text/css' href='libs/css/side-panel.css' />
+  <link rel='stylesheet' type='text/css' href='libs/css/icons-css/poi.css' />
+  <link rel='stylesheet' type='text/css' href='libs/css/icons-css/social-media.css' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link rel='stylesheet' type='text/css' href='libs/css/style.css' />
 </head>
 
 <body>
-  <div id=”preloader”></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-9">
-        <p>Differently</p>
-      </div>
-      <div class="col-3">
-        <p>Sized</p>
+  <div id="preloader"></div>
+  <div class="row">
+    <div class="col">
+      <div class="container-fluid">
+        <div id="errorMessage"></div>
+        <div class='map-view'>
+          <form class='tt-side-panel js-form'>
+            <header class='tt-side-panel__header'>
+              <h4>
+                Point of Interest Details
+              </h4>
+            </header>
+            <div class='tt-tabs js-tabs'>
+              <div class='tt-tabs__panel' id='results'>
+                <div class='js-results' hidden='hidden'></div>
+                <div class='js-results-loader' hidden='hidden'>
+                  <div class='loader-center'><span class='loader'></span></div>
+                </div>
+                <div class='result-card'>
+                  <div class="photo-container"></div>
+                  <div class="data-segment basic">
+                    <div class="poi-name"></div>
+                    <div class="data-label category"></div>
+                    <div class="address"></div>
+                    <div class="data-label">
+                      <div class="rating"></div>
+                      <div class="pricing"></div>
+                    </div>
+                  </div>
+                  <div class="data-segment contact">
+                    <div class="data-label hours"></div>
+                    <div class="data-label phone"></div>
+                    <div class="data-label websites"></div>
+                  </div>
+                  <div class="data-segment reviews"></div>
+                </div>
+              </div>
+              <div class="foursquare-text">Powered by <strong>Foursquare</strong></div>
+            </div>
+          </form>
+          <div id="map" class="full-map"></div>
+        </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-3">
-        <p>Left Column</p>
-      </div>
-      <div class="col-6">
-        <p>Middle Column</p>
-      </div>
-      <div class="col-3">
-        <p>Right Column</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-  <script src="libs/js/script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
-    integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-    </script>
+    <script type='text/javascript' src='libs/js/tail.select.min.js'></script>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.1/maps/maps-web.min.js'></script>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.1/services/services-web.min.js'></script>
+    <script type='text/javascript' src='libs/js/formatters.js'></script>
+    <script type='text/javascript' src='libs/js/info-hint.js'></script>
+    <script type='text/javascript' src='libs/js/tail-selector.js'></script>
+    <script type='text/javascript' src='libs/js/mobile-or-tablet.js'></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
+    <script type='text/javascript' src='libs/js/script.js'></script>
 </body>
 
 </html>
