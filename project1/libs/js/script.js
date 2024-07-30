@@ -7,6 +7,28 @@ $(window).on('load', function () {
 });
 
 if ("geolocation" in navigator) {
+    // check for new mods to chrome !!!!!!
+    if ('permissions' in navigator) {
+        navigator.permissions.query({ name: 'geolocation' })
+            .then(function (result) {
+                if (result.state === 'denied') {
+                    var pos = {
+                        coords: {
+                            latitude: 51.442338,
+                            longitude: -0.985273
+                        }
+                    }
+                    success(pos);
+                    // $('#errorMessage').text("Permission denied. You can change your browser settings" +
+                    //    " to allow usage of geolocation on this domain or you may need to make it secure !");
+                } else {
+                    navigator.geolocation.getCurrentPosition(success
+                        , logError, geoOptions);
+                }
+
+            });
+    }
+
     const geoOptions = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -18,8 +40,7 @@ if ("geolocation" in navigator) {
         const arrLatLng = [];
         arrLatLng.push(crd.latitude);
         arrLatLng.push(crd.longitude);
-        // arrLatLng.push(51.442338);
-        // arrLatLng.push(-0.985273);
+
         const fsqAPIToken = 'fsq3BmkrpBLqO6/MNsHUeywxpazEhF/gKN2zlao1VutmIeQ=';
         var map = tt.map({
             key: 'wJVOl0eEEqNDqJn3YEWUaKXqqW2jNL63',
@@ -207,8 +228,8 @@ if ("geolocation" in navigator) {
             handleContactAndHours(poiResult);
             handleReviews(poiResult);
 
-            // map.flyTo({ center: fuzzyResult.position, offset: [0, 150], animate: false });
-            // document.querySelector('.tt-tabs__panel').scrollTo(0, 0);
+            map.flyTo({ center: fuzzyResult.position, offset: [0, 150], animate: false });
+            document.querySelector('.tt-tabs__panel').scrollTo(0, 0);
         };
 
         function handlePhoto(poiResult) {
@@ -222,7 +243,7 @@ if ("geolocation" in navigator) {
                     imageElement.setAttribute('alt', 'Image not found.');
                     imageElement.src = photo.prefix + dimension + photo.suffix;
                     elements.photoContainer.appendChild(imageElement);
-                    if (indx < (poiResult.photos.length - 1) ){
+                    if (indx < (poiResult.photos.length - 1)) {
                         var horizLine = document.createElement("hr");
                         elements.photoContainer.appendChild(horizLine);
                     }
@@ -422,9 +443,6 @@ if ("geolocation" in navigator) {
     function logError(err) {
         $('#errorMessage').text(`ERROR(${err.code}): ${err.message}`);
     }
-
-    navigator.geolocation.getCurrentPosition(success
-        , logError, geoOptions);
 } else {
     $('#errorMessage').text("Navigator geolocation is not included in this browser !!");
 };
