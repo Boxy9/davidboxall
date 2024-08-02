@@ -1,0 +1,21 @@
+body {
+    color: blue;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 90%;
+    border-collapse: collapse;
+    border: 3px solid blue;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+td {
+    padding: 20px;
+}
