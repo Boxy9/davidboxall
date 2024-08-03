@@ -24,7 +24,7 @@ body {
   font-weight: bold;
   color: red;
   font-family: "Gotham", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 1rem;
 }
 
 #preloader {
@@ -81,11 +81,11 @@ body {
   color: #262626;
   display: -webkit-box;
   font-family: "Gotham", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: .8rem;
   font-weight: bold;
   -webkit-line-clamp: 2;
   line-clamp: 2;
-  margin-top: 8px;
+  margin-top: .5rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -93,9 +93,9 @@ body {
 .category {
   color: #3f9cd9;
   font-family: "Gotham", Helvetica, Arial, sans-serif;
-  font-size: 10px;
+  font-size: .62rem;
   font-weight: bold;
-  margin-top: -10px;
+  margin-top: -.62rem;
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
