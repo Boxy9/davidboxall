@@ -233,11 +233,13 @@ if ("geolocation" in navigator) {
         };
 
         function handlePhoto(poiResult) {
-
             elements.photoContainer.innerHTML = " "
 
             if (poiResult.photos.length > 0) {
-                const dimension = "344x170";
+                const pic = elements.photoContainer.getBoundingClientRect();
+                const phWidth = Math.round(pic.width * 0.96);
+                const phHeight = Math.round(phWidth / 1.75);
+                const dimension = `${phWidth}x${phHeight}`;
                 poiResult.photos.forEach(function (photo, indx) {
                     var imageElement = document.createElement('img');
                     imageElement.setAttribute('alt', 'Image not found.');
@@ -254,7 +256,7 @@ if ("geolocation" in navigator) {
         function handleBasicData(fuzzyResult, poiResult) {
             document.querySelector('.poi-name').textContent = fuzzyResult.place.name || poiResult.poi.name;
             document.querySelector('.address').textContent = fuzzyResult.place.location.formatted_address;
-
+            document.querySelector('.tt-side-panel__header').textContent = fuzzyResult.place.name || poiResult.poi.name;
             if (fuzzyResult.place.categories.length > 0) {
                 document.querySelector('.category').textContent = Formatters.formatCategoryName(fuzzyResult.place.categories[0].name);
             } else {

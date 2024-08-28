@@ -1,4 +1,10 @@
-.tt-side-panel {
+@media screen and (max-width: 640px) {
+    html {
+      font-size: 10px;
+    }
+  } 
+  
+  .tt-side-panel {
     background-color: #f2f2f2;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .16);
     display: flex;
@@ -8,7 +14,8 @@
     justify-content: space-evenly;
     overflow: visible;
     margin: 0;
-    width: 25%;
+    padding: 0;
+    width: 20vw;
     z-index: 1;
 }
 
@@ -35,6 +42,8 @@
 .tt-side-panel__header {
     background-color: #ffffff;
     padding: auto auto auto 1rem;
+    text-align: center;
+    font-weight: bold;
 }
 
 .tt-side-panel__header.-traffic {
